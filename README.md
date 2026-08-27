@@ -17,22 +17,24 @@
 
 ## 安装
 
-**方式一：dsh plugin 命令安装（git URL 或 file 路径）**
+**方式一：dsh plugin 命令安装**
 
 ```bash
 # 在目标机器的 DSH web profile 中安装（自动 pnpm 安装 + 注册）
-dsh plugin --profile web add "https://github.com/<owner>/<repo>.git"
+dsh plugin --profile web add "https://github.com/musclePatrickStar/fdtree.git"
 
 # 或 SSH 方式（注意：必须用 git+ssh:// 完整格式，pnpm 不支持 git@github.com:xxx 简写）
-dsh plugin --profile web add "git+ssh://git@github.com/<owner>/<repo>.git"
+dsh plugin --profile web add "git+ssh://git@github.com/musclePatrickStar/fdtree.git"
 
 # 或本地路径
 dsh plugin --profile web add "file:/path/to/fdtree"
 ```
 
+> 如果是 fork 或自建镜像，把上面的仓库地址替换成你自己的即可。
+
 **方式二：手动编辑**
 
-1. 在 `$DSH_HOME/profiles/web/package.json` 的 `dependencies` 加一行：`"fdtree": "<git-url-or-version>"`；
+1. 在 `$DSH_HOME/profiles/web/package.json` 的 `dependencies` 加一行：`"fdtree": "github:musclePatrickStar/fdtree"`（可锁定版本：`"fdtree": "github:musclePatrickStar/fdtree#v0.1.0"`）；
 2. 在 `dsh.profile.bundles` 数组末尾追加 `"fdtree"`；
 3. 在 `$DSH_HOME/profiles/web` 下执行 `pnpm install`；
 4. 重启 dsh web（`dsh web`）。左侧栏底部出现「文件树」按钮，右侧自动显示文件树面板。
