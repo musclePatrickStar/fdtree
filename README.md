@@ -22,6 +22,9 @@
 # 在目标机器的 DSH web profile 中安装（自动 pnpm 安装 + 注册）
 dsh plugin --profile web add "https://github.com/<owner>/<repo>.git"
 
+# 或 SSH 方式（注意：必须用 git+ssh:// 完整格式，pnpm 不支持 git@github.com:xxx 简写）
+dsh plugin --profile web add "git+ssh://git@github.com/<owner>/<repo>.git"
+
 # 或本地路径
 dsh plugin --profile web add "file:/path/to/fdtree"
 ```
