@@ -722,7 +722,7 @@ window.__ModuleLoader__.load({
 
 			return React.createElement('div', { className: 'fdt-panel' },
 				React.createElement('div', { className: 'fdt-header' },
-					React.createElement('span', { className: 'fdt-title' }, '\ud83d\uddc2 \u6587\u4ef6\u6811'),
+					React.createElement('span', { className: 'fdt-title' }, '\ud83c\udf33 \u6587\u4ef6\u6811'),
 					gitMode
 						? React.createElement('span', { className: 'fdt-tag fdt-tag-git', title: 'git \u6a21\u5f0f\uff1a\u4e0e HEAD \u6bd4\u8f83' }, 'GIT ' + (rootInfo && rootInfo.git.branch ? rootInfo.git.branch : ''))
 						: React.createElement('span', { className: 'fdt-tag', title: '\u57fa\u7ebf\u6a21\u5f0f\uff1a\u4e0e\u4f1a\u8bdd\u5feb\u7167\u6bd4\u8f83' }, '\u57fa\u7ebf'),
@@ -818,7 +818,7 @@ window.__ModuleLoader__.load({
 								store.set({ visible: !s.visible })
 							},
 						},
-							React.createElement('span', { className: 'fdt-sidebar-icon' }, '\ud83d\uddc2'),
+							React.createElement('span', { className: 'fdt-sidebar-icon' }, '\ud83c\udf33'),
 							s.wide ? React.createElement('span', null, '\u6587\u4ef6\u6811') : null,
 						)
 					},
