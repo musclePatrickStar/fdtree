@@ -12,6 +12,7 @@
 - **模式自动切换**：工作区位于 git 仓库内（含父目录仓库）自动启用 git 模式；非仓库目录自动用基线模式；`git init` 后 15 秒内自动检测生效
 - **git 模式**：与 `HEAD` 对比（git 原生 xdiff），目录树徽标实时显示改动/未跟踪/删除；`git commit` 后差异自动归零
 - **基线模式**（无 git 仓库）：与打开时快照对比，支持「📌 设基线」
+- **打开终端**：右键目录树节点弹出菜单，可在宿主系统打开终端（Windows：Windows Terminal / PowerShell / cmd；macOS：Terminal.app；Linux：桌面终端），支持一键 cd 到选中目录
 - 语法高亮：JS/TS、Python、JSON、Markdown、HTML、CSS、YAML、Shell、C/C++/C#/Java、Go、Rust、PHP、Ruby、Swift、Kotlin、SQL、PowerShell、Lua、Dockerfile、Makefile、.env
 - 大文件优化：`FsVersion` 变更检测免重复读盘、大文件自动降载渲染
 
@@ -58,6 +59,7 @@ dsh plugin --profile web remove fdtree
 - **无外部网络请求**：客户端只通过同源 `fetch('/fdtree/rpc')` 与本机 DSH web 服务器通信，不连接任何外部域名；无遥测、无上报。
 - **只读工作区**：插件只读取当前会话工作区内的文件（带路径越界检查），git 命令（`status`/`diff`/`branch`）仅在本地运行并受 DSH 沙箱策略约束，从不执行 `fetch`/`pull`/`push`。
 - **会话隔离**：未绑定会话前，所有 RPC 一律拒绝（`NO_SESSION`），不会暴露任何路径或文件内容。
+- **终端功能**：仅在用户显式右键点击时触发，目标目录被限制在工作区内。
 - **数据本地化**：所有内容都在你自己的浏览器中渲染展示，不会发送到任何服务器。
 - **安装即信任**：与所有包管理器一样，安装插件等同于执行插件作者代码。请仅从可信来源安装。
 
