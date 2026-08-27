@@ -1,6 +1,9 @@
-# fdtree — 工作区文件树 + 实时红绿 Diff（DSH web 插件）
+# DSH文件目录+diff插件
+如果你和我一样不想为了目录树安装一个大ui，这个插件或许可以帮到你
 
-DeepSeek Harness（dsh web）静态插件：在界面右侧提供**工作区文件目录树**，点开文件后以**真嵌入布局**展示内容与**实时红绿 Diff**（git 模式对比 HEAD，无 git 时对比会话基线），并带 22 种语言的语法高亮。
+## 简述
+
+在界面右侧显示**工作区文件目录树**，点开文件后以**真嵌入布局**展示内容与**实时红绿 Diff**（git 模式对比 HEAD，无 git 时对比会话基线，会话基线支持自定义），文件diff支持 22 种语言的语法高亮。
 
 ## 功能
 
@@ -28,7 +31,7 @@ dsh plugin --profile web add "file:/path/to/fdtree"
 1. 在 `$DSH_HOME/profiles/web/package.json` 的 `dependencies` 加一行：`"fdtree": "<git-url-or-version>"`；
 2. 在 `dsh.profile.bundles` 数组末尾追加 `"fdtree"`；
 3. 在 `$DSH_HOME/profiles/web` 下执行 `pnpm install`；
-4. 重启 dsh web（`dsh web`）。左侧栏底部出现「🗂 文件树」按钮，右侧自动显示文件树面板。
+4. 重启 dsh web（`dsh web`）。左侧栏底部出现「文件树」按钮，右侧自动显示文件树面板。
 
 > 插件包结构遵循 DSH 插件规范：`package.json` 的 `dsh.bundle.patch` + `dsh.client`、`cordis.patch.yml` 补丁插入、`lib/index.js` 宿主端、`client/client.js` 客户端 bundle（`__ModuleLoader__` 格式）。
 
