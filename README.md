@@ -47,6 +47,14 @@ dsh plugin --profile web remove fdtree
 - 客户端：`client/client.js`（手写 `__ModuleLoader__` bundle，同源 `fetch` 调用宿主 RPC）
 - 本仓库根目录同时是插件包根目录；`src/`、`data/`、`Dockerfile` 等为演示文件。
 
+## 安全说明
+
+- **无外部网络请求**：客户端只通过同源 `fetch('/fdtree/rpc')` 与本机 DSH web 服务器通信，不连接任何外部域名；无遥测、无上报。
+- **只读工作区**：插件只读取当前会话工作区内的文件（带路径越界检查），git 命令（`status`/`diff`/`branch`）仅在本地运行并受 DSH 沙箱策略约束，从不执行 `fetch`/`pull`/`push`。
+- **会话隔离**：未绑定会话前，所有 RPC 一律拒绝（`NO_SESSION`），不会暴露任何路径或文件内容。
+- **数据本地化**：所有内容都在你自己的浏览器中渲染展示，不会发送到任何服务器。
+- **安装即信任**：与所有包管理器一样，安装插件等同于执行插件作者代码。请仅从可信来源安装。
+
 ## License
 
 MIT
