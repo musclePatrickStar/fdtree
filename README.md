@@ -12,7 +12,7 @@
 - **模式自动切换**：工作区位于 git 仓库内（含父目录仓库）自动启用 git 模式；非仓库目录自动用基线模式；`git init` 后 15 秒内自动检测生效
 - **git 模式**：与 `HEAD` 对比（git 原生 xdiff），目录树徽标实时显示改动/未跟踪/删除；`git commit` 后差异自动归零
 - **基线模式**（无 git 仓库）：与打开时快照对比，支持「📌 设基线」
-- **打开终端**：右键目录树节点弹出菜单，可在宿主系统打开终端（Windows：Windows Terminal / PowerShell / cmd；macOS：Terminal.app；Linux：桌面终端），支持一键 cd 到选中目录
+- **打开终端**：右键目录树节点弹出菜单，可在宿主系统打开终端并自动定位（Windows：PowerShell / cmd；macOS：Terminal.app；Linux：桌面终端，无图形环境时明确报错），支持一键 cd 到选中目录，成功/失败均有横幅反馈
 - 语法高亮：JS/TS、Python、JSON、Markdown、HTML、CSS、YAML、Shell、C/C++/C#/Java、Go、Rust、PHP、Ruby、Swift、Kotlin、SQL、PowerShell、Lua、Dockerfile、Makefile、.env
 - 大文件优化：`FsVersion` 变更检测免重复读盘、大文件自动降载渲染
 
