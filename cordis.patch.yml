@@ -1,0 +1,4 @@
+# dsh bundle patch: inserts the fdtree plugin into a profile's layer stack.
+- insert:
+    - id: fdtree
+      name: 'fdtree'

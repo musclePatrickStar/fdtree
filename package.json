@@ -1,0 +1,37 @@
+{
+  "name": "fdtree",
+  "version": "0.1.0",
+  "description": "工作区文件树 + 实时红绿 Diff 面板（DeepSeek Harness web 插件）— workspace file tree with live red/green diff for dsh web.",
+  "type": "module",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "keywords": [
+    "deepseek",
+    "harness",
+    "dsh",
+    "dsh-plugin",
+    "file-tree",
+    "diff",
+    "explorer"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md"
+  ]
+}
