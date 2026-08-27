@@ -11,7 +11,7 @@ DeepSeek Harness（dsh web）静态插件：在界面右侧提供**工作区文�
 - 语法高亮：JS/TS、Python、JSON、Markdown、HTML、CSS、YAML、Shell、C/C++/C#/Java、Go、Rust、PHP、Ruby、Swift、Kotlin、SQL、PowerShell、Lua、Dockerfile、Makefile、.env
 - 大文件优化：`FsVersion` 变更检测免重复读盘、大文件自动降载渲染
 
-## 安装（被他人 harness 装载）
+## 安装
 
 **方式一：本地/私有仓库（git URL 或 file 路径）**
 
