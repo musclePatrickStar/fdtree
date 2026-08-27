@@ -1,6 +1,6 @@
 {
   "name": "fdtree",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "工作区文件树 + 实时红绿 Diff 面板（DeepSeek Harness web 插件）— workspace file tree with live red/green diff for dsh web.",
   "type": "module",
   "main": "lib/index.js",
