@@ -1,14 +1,15 @@
 # DSH文件目录+diff插件
-如果你和我一样不想为了目录树安装一个大ui，这个插件或许可以帮到你
+如果你和我一样不想为了一个目录树就安装大而全的 UI，这个插件或许可以帮到你
 
 ## 简述
 
-在界面右侧显示**工作区文件目录树**，点开文件后以**真嵌入布局**展示内容与**实时红绿 Diff**（git 模式对比 HEAD，无 git 时对比会话基线，会话基线支持自定义），文件diff支持 22 种语言的语法高亮。
+在界面最右侧显示**工作区文件目录树**，点开文件后以**真嵌入布局**（四列占位：原生侧边栏｜对话区｜文件内容｜文件树）展示内容与**实时红绿 Diff**（git 模式对比 HEAD，无 git 时对比会话基线，会话基线支持自定义），文件 Diff 支持 22 种语言的语法高亮。
 
 ## 功能
 
-- 文件树（默认只显示紧凑树列，点文件展开内容区）
-- 多标签打开文件，内容/Diff 整合为单一视图：🟥 删除行、🟩 新增行、行号、`+N −N` 统计
+- **布局**：始终占列的四列形态（原生侧边栏｜对话区｜文件内容｜文件树），非浮动；内容列默认收起，仅显示文件树
+- 文件树：点文件展开内容区，多标签打开，内容/Diff 整合为单一视图：🟥 删除行、🟩 新增行、行号、`+N −N` 统计
+- **模式自动切换**：工作区位于 git 仓库内（含父目录仓库）自动启用 git 模式；非仓库目录自动用基线模式；`git init` 后 15 秒内自动检测生效
 - **git 模式**：与 `HEAD` 对比（git 原生 xdiff），目录树徽标实时显示改动/未跟踪/删除；`git commit` 后差异自动归零
 - **基线模式**（无 git 仓库）：与打开时快照对比，支持「📌 设基线」
 - 语法高亮：JS/TS、Python、JSON、Markdown、HTML、CSS、YAML、Shell、C/C++/C#/Java、Go、Rust、PHP、Ruby、Swift、Kotlin、SQL、PowerShell、Lua、Dockerfile、Makefile、.env
@@ -16,7 +17,7 @@
 
 ## 安装
 
-**方式一：本地/私有仓库（git URL 或 file 路径）**
+**方式一：dsh plugin 命令安装（git URL 或 file 路径）**
 
 ```bash
 # 在目标机器的 DSH web profile 中安装（自动 pnpm 安装 + 注册）
@@ -48,7 +49,7 @@ dsh plugin --profile web remove fdtree
 
 - 宿主端：`lib/index.js`（ESM，Cordis 插件，经 `webServer` 注册 `/fdtree/rpc` HTTP JSON-RPC）
 - 客户端：`client/client.js`（手写 `__ModuleLoader__` bundle，同源 `fetch` 调用宿主 RPC）
-- 本仓库根目录同时是插件包根目录；`src/`、`data/`、`Dockerfile` 等为演示文件。
+- 仓库根目录即插件包根目录：`lib/index.js` 宿主端、`client/client.js` 客户端 bundle、`cordis.patch.yml` 补丁、`package.json` 包定义（不含演示文件）。
 
 ## 安全说明
 
