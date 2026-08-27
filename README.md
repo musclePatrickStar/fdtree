@@ -33,6 +33,19 @@ dsh plugin --profile web add "file:/path/to/fdtree"
 
 > 如果是 fork 或自建镜像，把上面的仓库地址替换成你自己的即可。
 
+## 更新
+
+```bash
+# 拉取仓库最新提交并重新解析安装（git 依赖按提交哈希锁定，必须 update 才会升级）
+dsh plugin --profile web update fdtree
+```
+
+然后重启 dsh web（`dsh web`）。
+
+> **为什么不是 `pnpm install`？** git 依赖的版本由锁文件中的提交哈希固定，普通 `install` 不会检测新提交；`update` 会重新解析到最新提交。
+> 想固定到某个版本时，可手动把依赖改为 `"fdtree": "github:musclePatrickStar/fdtree#v0.1.3"`。
+> Windows 上若遇到证书报错（schannel），先执行 `$env:GIT_SSL_NO_VERIFY='1'` 再运行 update。
+
 **方式二：手动编辑**
 
 1. 在 `$DSH_HOME/profiles/web/package.json` 的 `dependencies` 加一行：`"fdtree": "github:musclePatrickStar/fdtree"`（可锁定版本：`"fdtree": "github:musclePatrickStar/fdtree#v0.1.0"`）；
